@@ -1,12 +1,10 @@
 ﻿import { FontAwesome5 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TabParam } from "../types/TabParam";
 import NavBar from "../components/navbar";
-import ListaTarefas from "../screens/tarefas/listatarefas";
-import ListaCategorias from "../screens/categorias/listacategorias";
 import Perfil from "../screens/perfil";
-import TarefasStackRoutes from "./TarefasStackRoutes";
+import { TabParam } from "../types/TabParam";
 import CategoriasStackRoutes from "./CategoriasStackRoutes";
+import TarefasStackRoutes from "./TarefasStackRoutes";
 
 const Tab = createBottomTabNavigator<TabParam>();
 

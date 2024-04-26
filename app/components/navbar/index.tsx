@@ -1,9 +1,12 @@
-﻿import { Text, View, Image } from 'react-native';
-import { Userpic } from 'react-native-userpic';
+﻿import { Image, Text, View } from 'react-native';
 import IconButton from '../iconbutton/IconButton';
+import { useNavigation } from '@react-navigation/native';
+import { homePropsStack } from '../../types/HomeStackParam';
 
 export default function NavBar() {
 
+    const navigation = useNavigation<homePropsStack>();
+    
     return (
         <View className='w-full h-1/6 flex flex-col items-center justify-center bg-violet-600'>
 
@@ -22,7 +25,7 @@ export default function NavBar() {
                     icon="logout"
                     iconcolor='white'
                     iconsize={28}
-                    handleClick={() => { }}
+                    handleClick={() => navigation.navigate('Home')}
                     styles={'w-12 ml-5 bg-violet-600'}
                 ></IconButton>
 

@@ -7,4 +7,4 @@ export type HomeStackParam = {
     Home: undefined;
 };
 
-export type propsStack = NativeStackNavigationProp<HomeStackParam>
+export type homePropsStack = NativeStackNavigationProp<HomeStackParam>

@@ -1,5 +1,4 @@
-﻿/* /components/Button.tsx  */
-import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+﻿import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
 interface Props {
@@ -12,10 +11,13 @@ interface Props {
 }
 
 const IconButton = (props: Props) => {
+
+  const estilos = `px-2 py-2 hover:bg-violet-800 font-medium                           
+                   active:text-white justify-center items-center`
   return (
     <TouchableOpacity
       onPress={props?.handleClick}
-      className={`${props.styles} px-2 py-2 hover:bg-violet-800 font-medium hover:ring-2 hover:border-2 border-2 border-transparent hover:border-violet-950 hover:ring-violet-800 active:ring-4 active:bg-violet-900 active:text-white`}
+      className={`${props.styles} ${estilos}`}
       disabled={props?.disabled}
     >
       <MaterialCommunityIcons

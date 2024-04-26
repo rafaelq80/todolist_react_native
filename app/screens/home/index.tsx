@@ -1,7 +1,11 @@
 ﻿import { Image, Text, View } from "react-native";
 import Button from "../../components/button/Button";
+import { useNavigation } from "@react-navigation/native";
+import { homePropsStack } from "../../types/HomeStackParam";
 
 export default function Home() {
+
+    const navigation = useNavigation<homePropsStack>();
 
     return (
 
@@ -20,7 +24,9 @@ export default function Home() {
 
             <View className='flex flex-col items-center justify-center w-full mt-2 py-3'>
                 <Button
-                    handleClick={() => { }}
+                    handleClick={() => navigation.navigate('Main', {
+                        screen:'Tarefas'
+                    })}
                     styles={'w-2/3 my-3 bg-violet-600 '}
                     textstyles={'text-white text-xl text-center font-bold'}
                     disabled={false}
