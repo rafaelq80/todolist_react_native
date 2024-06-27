@@ -18,6 +18,7 @@ export default function ListaTarefas() {
       await listar('/tarefas', setTarefas);
     } catch (error: any) {
       Alert.alert('Erro ao listar as Tarefas.')
+      console.log(error)
     }
   }
 
@@ -26,8 +27,8 @@ export default function ListaTarefas() {
   }, [tarefas]);
 
   function open() {
-    //navigation.navigate("FormTarefas");
-    console.log("Form Tarefas")
+    navigation.navigate("FormTarefas");
+    //console.log("Form Tarefas")
   }
 
   return (
@@ -48,7 +49,7 @@ export default function ListaTarefas() {
           icon={"plus"}
           iconcolor={"white"}
           iconsize={28}
-          handleClick={() => {}}
+          handleClick={() => open()}
         />
       </View>
 

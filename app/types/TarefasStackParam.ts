@@ -2,12 +2,12 @@
 
 export type StackTarefasParam = {
     ListarTarefas: undefined;
-    // FormTarefas?: {
-    //     id: string;
-    // };
-    // DeletarTarefas: {
-    //     id: string;
-    // };
+    FormTarefas?: {
+        id: string;
+    };
+    DeletarTarefas: {
+        id: string;
+    };
 };
 
 export type tarefasPropsStack = NativeStackNavigationProp<StackTarefasParam>
