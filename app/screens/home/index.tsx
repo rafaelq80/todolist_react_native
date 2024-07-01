@@ -1,11 +1,11 @@
-﻿import { Image, Text, View } from "react-native";
+﻿import { useNavigation } from "@react-navigation/native";
+import { Image, Text, View } from "react-native";
 import Button from "../../components/button/Button";
-import { useNavigation } from "@react-navigation/native";
-import { homePropsStack } from "../../types/HomeStackParam";
+import { HomePropsStack } from "../../types/HomeStackParam";
 
 export default function Home() {
 
-    const navigation = useNavigation<homePropsStack>();
+    const navigation = useNavigation<HomePropsStack>();
 
     return (
 
@@ -18,16 +18,16 @@ export default function Home() {
                 className="w-36 h-36 mt-40 mb-3"
             />
 
-            <Text className='text-violet-600 text-4xl font-bold'> Todo List Mobile</Text>
+            <Text className='text-violet-800 text-4xl font-bold'> Todo List Mobile</Text>
 
-            <Text className='text-violet-600 text-2xl font-bold'> Adicione suas tarefas!</Text >
+            <Text className='text-violet-800 text-2xl font-bold'> Organize suas tarefas!</Text >
 
             <View className='flex flex-col items-center justify-center w-full mt-2 py-3'>
                 <Button
                     handleClick={() => navigation.navigate('Main', {
                         screen:'Tarefas'
                     })}
-                    styles={'w-2/3 my-3 bg-violet-600 '}
+                    styles={'w-2/3 my-3 bg-violet-700 '}
                     textstyles={'text-white text-xl text-center font-bold'}
                     disabled={false}
                 >
@@ -36,8 +36,8 @@ export default function Home() {
             </ View>
 
             <View className='flex-1 justify-end mb-3'>
-                <Text className='text-violet-600 text-base font-bold text-center'> Desenvolvido por Rafael Queiróz</Text>
-                <Text className='text-violet-600 text-base font-bold text-center'> Copyright: 2024</Text>
+                <Text className='text-indigo-900 text-base font-bold text-center'> Desenvolvido por Rafael Queiróz</Text>
+                <Text className='text-indigo-900 text-base font-bold text-center'> Copyright: 2024</Text>
             </View >
 
         </View >

@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
-import NavBar from './app/components/navbar';
 import Routes from './app/routes';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import ToastManager from 'toastify-react-native'
 
 export default function App() {
   return (
+    
     <SafeAreaView className='flex-1'>
+      <ToastManager />
       <Routes />
       <StatusBar style="auto" />
     </SafeAreaView>

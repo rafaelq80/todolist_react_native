@@ -1,24 +1,32 @@
-﻿import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+﻿import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { Alert, NativeSyntheticEvent, ScrollView, Switch, SwitchChangeEvent, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
+import { NativeSyntheticEvent, Switch, SwitchChangeEvent, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { UIActivityIndicator } from 'react-native-indicators';
 import IconButton from '../../../components/iconbutton/IconButton';
 import Categoria from '../../../models/Categoria';
 import Tarefa from '../../../models/Tarefa';
 import { atualizar, cadastrar, listar } from '../../../services/Service';
 import { styles } from '../../../styles/TarefasStyles';
-import { tarefasPropsStack } from "../../../types/TarefasStackParam";
+import { TarefasPropsStack } from "../../../types/TarefasStackParam";
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 export default function FormTarefa() {
 
-    const navigation = useNavigation<tarefasPropsStack>();
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
+    const agora = new Date()
+
+    const navigation = useNavigation<TarefasPropsStack>();
 
     const params: RouteProp<{ params: { id: string } }, 'params'> = useRoute();
 
     const id: string = params.params?.id;
 
     const [changeCategoria, setChangeCategoria] = useState<boolean>(false)
+
+    const [showDate, setShowDate] = useState<boolean>(false);
 
     const [categorias, setCategorias] = useState<Categoria[]>([])
 
@@ -32,23 +40,24 @@ export default function FormTarefa() {
         nome: '',
         descricao: '',
         responsavel: '',
-        data: new Date(),
+        data: agora,
         status: false,
         categoria: null
     })
 
-    const [showDate, setShowDate] = useState<boolean>(false);
-
     async function buscarTarefaPorId(id: string) {
-        await listar(`/tarefas/${id}`, setTarefa)
+        try {
+            await listar(`/tarefas/${id}`, setTarefa)
+        } catch (error: any) {
+            ToastAlerta('Erro ao procurar a Tarefa.', 'erro')
+        }
     }
 
     async function buscarCategorias() {
         try {
             await listar('/categorias', setCategorias);
         } catch (error: any) {
-            Alert.alert('Erro ao listar as Categorias.')
-            console.log(error)
+            ToastAlerta('Erro ao listar as Categorias.', 'erro')
         }
     }
 
@@ -76,6 +85,16 @@ export default function FormTarefa() {
         });
     }
 
+    function atualizarData(e: DateTimePickerEvent, name: string) {
+
+        setShowDate(false)
+
+        setTarefa({
+            ...tarefa,
+            [name]: new Date(e.nativeEvent.timestamp)
+        });
+    }
+
     function atualizarEstado(e: NativeSyntheticEvent<TextInputChangeEventData>, name: string) {
 
         setTarefa({
@@ -97,29 +116,31 @@ export default function FormTarefa() {
 
     async function gerarNovaTarefa() {
 
+        setIsLoading(true)
+
         if (id !== undefined) {
 
             try {
                 await atualizar(`/tarefas`, tarefa, setTarefa);
 
-                Alert.alert('Tarefa atualizada!', 'sucesso')
+                ToastAlerta('Tarefa atualizada!', 'sucesso')
 
             } catch (error: any) {
-                Alert.alert('Erro ao atualizar a Tarefa', 'erro')
+                ToastAlerta('Erro ao atualizar a Tarefa', 'erro')
             }
 
         } else {
             try {
                 await cadastrar(`/tarefas`, tarefa, setTarefa)
 
-                Alert.alert('Tarefa cadastrado!', 'sucesso');
+                ToastAlerta('Tarefa cadastrada!', 'sucesso');
 
             } catch (error: any) {
-                Alert.alert('Erro ao cadastrar a Tarefa', 'erro');
-                console.log(JSON.stringify(error));
+                ToastAlerta('Erro ao cadastrar a Tarefa', 'erro');
             }
         }
 
+        setIsLoading(false)
         retornar()
 
     }
@@ -129,26 +150,34 @@ export default function FormTarefa() {
     }
 
     function formatarData(data: Date) {
+
         return new Intl.DateTimeFormat('pt-BR', {
             dateStyle: 'short',
             timeZone: 'America/Sao_Paulo',
-        }).format(new Date(data))
+        }).format(data)
     }
 
-    //console.log(JSON.stringify(tarefa))
-    //console.log(JSON.stringify(categorias))
+    console.log(JSON.stringify(tarefa))
 
     return (
 
-        <>
+        <View className='flex-1 flex-col w-full'>
 
-            <ScrollView>
+            {isLoading ?
+                <UIActivityIndicator
+                    color='#6d28d9'
+                    size={80}
+                />
 
-                <View className='flex-1 flex-col items-center justify-center w-full h-full py-2 mt-4'>
+                :
+
+                <View className='flex flex-col items-center justify-center w-full my-4'>
+
+                    <Text className='text-3xl font-semibold text-black py-3'>{id ? 'Editar Tarefa' : 'Cadastrar Tarefa'}</Text>
 
                     <TextInput
                         className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-200'
+                                   text-xl text-black bg-violet-100'
                         placeholder='Tarefa'
                         value={tarefa.nome}
                         onChange={(e) => atualizarEstado(e, 'nome')}
@@ -156,7 +185,7 @@ export default function FormTarefa() {
 
                     <TextInput
                         className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-200'
+                                   text-xl text-black bg-violet-100'
                         placeholder='Descrição'
                         value={tarefa.descricao}
                         onChange={(e) => atualizarEstado(e, 'descricao')}
@@ -164,7 +193,7 @@ export default function FormTarefa() {
 
                     <TextInput
                         className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-200'
+                                   text-xl text-black bg-violet-100'
                         placeholder='Responsável'
                         value={tarefa.responsavel}
                         onChange={(e) => atualizarEstado(e, 'responsavel')}
@@ -172,33 +201,22 @@ export default function FormTarefa() {
 
                     <TextInput
                         className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-200'
+                                   text-xl text-black bg-violet-100'
                         placeholder='Data'
-                        value={formatarData(tarefa.data)}
+                        value={formatarData(new Date(tarefa.data))}
                         editable
-                        onFocus={() => setShowDate(true)}
+                        onPressIn={() => setShowDate(true)}
                     />
 
-                    {React.useMemo(() => {
-                        return showDate &&
-                            <DateTimePickerModal
-                                className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-300'
-                                isVisible={showDate}
-                                mode="date"
-                                locale='pt_BR'
-                                date={new Date(tarefa.data)}
-                                onConfirm={(date) => {
-                                    setShowDate(false)
-                                    setTarefa({
-                                        ...tarefa,
-                                        data: new Date(date)
-                                    });
-
-                                }}
-                                onCancel={() => setShowDate(false)}
-                            />
-                    }, [showDate])}
+                    {showDate && (
+                        <RNDateTimePicker
+                            mode='date'
+                            timeZoneName={'America/Sao_Paulo'}
+                            locale="pt-BR"
+                            value={new Date(tarefa.data)}
+                            onChange={(e) => atualizarData(e, 'data')}
+                        />
+                    )}
 
                     <View className='w-11/12 my-2 px-4 py-2 flex flex-row items-center justify-start'>
                         <Text
@@ -226,23 +244,30 @@ export default function FormTarefa() {
                         labelField="descricao"
                         valueField="id"
                         placeholder='Selecione uma Categoria'
-                        searchPlaceholder="Search..."
                         value={categoria}
                         onChange={(value) => atualizarCategoria(value)}
                     />
 
-                    <View className='flex flex-col items-center justify-center w-full mt-2 py-3'>
+                    <View className='w-11/12 my-4 py-4 flex flex-row items-center justify-center'>
+                        
                         <IconButton
                             icon="content-save"
                             iconcolor='white'
                             iconsize={24}
                             handleClick={() => gerarNovaTarefa()}
-                            styles={'w-16 ml-3 bg-violet-600 rounded-xl'}
+                            styles={'w-16 mx-2 bg-blue-700 rounded-2xl'}
+                        />
+                        <IconButton
+                            icon="cancel"
+                            iconcolor='white'
+                            iconsize={24}
+                            handleClick={() => retornar()}
+                            styles={'w-16 mx-2 bg-red-600 rounded-2xl'}
                         />
                     </View>
-                </View>
-            </ScrollView>
 
-        </>
+                </View>
+            }
+        </View>
     )
 }

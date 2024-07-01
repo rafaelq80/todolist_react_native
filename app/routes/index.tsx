@@ -7,8 +7,8 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
-            {/* <HomeStackRoutes /> */}
-            <TabRoutes/>
+            <HomeStackRoutes />
+            {/* <TabRoutes/> */}
         </NavigationContainer>
     )
 }

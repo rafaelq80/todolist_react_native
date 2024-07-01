@@ -10,4 +10,4 @@ export type StackTarefasParam = {
     };
 };
 
-export type tarefasPropsStack = NativeStackNavigationProp<StackTarefasParam>
+export type TarefasPropsStack = NativeStackNavigationProp<StackTarefasParam>

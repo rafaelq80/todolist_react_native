@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     },
     selectInput: {
         width: "91.666667%",
-        backgroundColor: '#ddd6fe',
+        backgroundColor: '#ede9fe',
         color: '#000000',
         borderColor: 'transparent',
         borderRadius: 24,

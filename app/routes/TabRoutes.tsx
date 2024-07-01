@@ -1,4 +1,4 @@
-﻿import { FontAwesome5 } from "@expo/vector-icons";
+﻿import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import NavBar from "../components/navbar";
 import Perfil from "../screens/perfil";
@@ -19,50 +19,55 @@ export default function TabRoutes() {
 
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: '#6750A4',
-                        height: 60,
-
+                        backgroundColor: '#6d28d9',
+                        height: 64,
                     },
                     tabBarLabelStyle: {
-                        color: '#ffffff',
                         fontSize: 16,
+                        paddingBottom: 4,
+                        fontWeight: "500",
                     },
-                    tabBarActiveBackgroundColor: '#663399',
+                    tabBarInactiveTintColor: "#818cf8",
+                    tabBarActiveTintColor: "#ffffff",
                 }}
             >
                 <Tab.Screen
                     name="Tarefas"
                     component={TarefasStackRoutes}
                     options={{
-                        tabBarIcon: () => <FontAwesome5
-                            name="tasks"
-                            color='#ffffff'
-                            size={18}
-                        />
+                        headerShadowVisible: false,
+                        tabBarIcon: ({ focused }) => <FontAwesome5
+                            name="clipboard-list"
+                            size={24}
+                            color={focused ? '#ffffff' : '#818cf8'}
+                            filter= 'brightness(1)'
+                        />,
                     }}
                 />
                 <Tab.Screen
                     name="Categorias"
                     component={CategoriasStackRoutes}
                     options={{
-                        tabBarIcon: () => <FontAwesome5
+                        tabBarIcon: ({ focused }) => <FontAwesome
                             name="star"
-                            color='#ffffff'
-                            size={18}
+                            size={24}
+                            color={focused ? '#ffffff' : '#818cf8'}
+                            filter= 'brightness(1)'
                         />
                     }}
                 />
-                <Tab.Screen
+                {/* <Tab.Screen
                     name="Perfil"
                     component={Perfil}
                     options={{
-                        tabBarIcon: () => <FontAwesome5
+                        tabBarIcon: ({ focused }) => <FontAwesome5
                             name="user-alt"
-                            color='#ffffff'
-                            size={18}
+                            size={24}
+                            color={focused ? '#ffffff' : '#818cf8'}
+                            filter= 'brightness(1)'
                         />
                     }}
-                />
+                /> */}
             </Tab.Navigator>
 
         </>

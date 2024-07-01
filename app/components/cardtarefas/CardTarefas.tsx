@@ -61,22 +61,26 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
 
             </View>
 
-            <View className="w-full my-2 flex items-center justify-center flex-row">
+            <View className="w-full my-2 py-2 flex-1 flex-row justify-center">
 
                 <IconButton
                     icon="pencil"
                     iconcolor='white'
                     iconsize={24}
-                    handleClick={() => {}}
-                    styles={'w-12 ml-3 bg-blue-700 rounded-2xl'}
+                    handleClick={() => navigation.navigate("FormTarefas", {
+                        id: `${tarefa.id}`
+                    })}
+                    styles={'w-16 mx-2 bg-blue-700 rounded-2xl'}
                 />
 
                 <IconButton
                     icon="delete"
                     iconcolor='white'
                     iconsize={24}
-                    handleClick={() => {}}
-                    styles={'w-12 ml-3 bg-red-600 rounded-2xl'}
+                    handleClick={() => navigation.navigate("DeletarTarefas", {
+                        id: `${tarefa.id}`
+                    })}
+                    styles={'w-16 mx-2 bg-red-600 rounded-2xl'}
                 />
 
             </View>

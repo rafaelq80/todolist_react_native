@@ -14,14 +14,14 @@ export default function CardCategorias({ categoria }: CardCategoriaProps) {
 
     return (
 
-        <View className="w-11/12 m-5 p-2 flex items-center justify-center flex-col
-                        bg-violet-300 rounded-2xl shadow-lg shadow-black">
+        <View className="w-11/12 my-3 mx-5 p-2 flex items-center justify-center flex-col
+                        bg-slate-200 rounded-2xl shadow-lg shadow-black">
 
             <View className="w-full flex flex-row">
 
                 <View className="w-4/5 items-center justify-start flex-row">
 
-                    <Text className="p-2 text-2xl font-bold text-black justify-start">
+                    <Text className="p-2 text-2xl font-semibold text-black justify-start">
                         {categoria.descricao}
                     </Text>
                 </View>
@@ -32,7 +32,9 @@ export default function CardCategorias({ categoria }: CardCategoriaProps) {
                         icon="pencil"
                         iconcolor='white'
                         iconsize={24}
-                        handleClick={() => { }}
+                        handleClick={() => navigation.navigate("FormCategorias", {
+                            id: `${categoria.id}`
+                        })}
                         styles={'my-2 w-12 ml-3 bg-blue-700 rounded-2xl'}
                     />
 
@@ -40,7 +42,9 @@ export default function CardCategorias({ categoria }: CardCategoriaProps) {
                         icon="delete"
                         iconcolor='white'
                         iconsize={24}
-                        handleClick={() => { }}
+                        handleClick={() => navigation.navigate("DeletarCategorias", {
+                            id: `${categoria.id}`
+                        })}
                         styles={'my-2 w-12 ml-3 bg-red-600 rounded-2xl'}
                     />
                 </View>
