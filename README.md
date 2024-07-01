@@ -16,7 +16,18 @@ Aplicativo Mobile, desenvolvido através da Biblioteca React Native e do Framewo
 
 <br />
 
-## Telas do Projeto
+## Tecnologias
+
+<div style="display: inline_block"><br>
+     <img align="center" alt="rafaelq80-JS" height="30" width="40" src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/JavaScript.svg">
+     <img align="center" alt="rafaelq80-TS" height="30" width="40" src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/TypeScript.svg">
+    <img align="center" alt="rafaelq80-React" height="30" width="40" src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/React-Light.svg">
+    <img align="center" alt="rafaelq80-React" height="30" src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/TailwindCSS-Dark.svg">
+<div> 
+
+<br />
+
+## Screens
 
 
 
@@ -46,6 +57,19 @@ Aplicativo Mobile, desenvolvido através da Biblioteca React Native e do Framewo
 		<td width="25%" align="center"></td>
 	</tr>
 </table>
+<br />
+
+## Bibliotecas Utilizadas
+
+- Nativewind + Tailwind (Estilização)
+- Expo Vector Icons
+- React Navigator (Rotas e Navegação)
+- Axios (Consumo da API)
+- React Native Community Date Time Picker (Calendário)
+- React Native Element Dropdown (Select)
+- React Native Indicators (Loading)
+- Toastify React Native (Alertas)
+
 <br />
 
 ## Referências sobre React Native
