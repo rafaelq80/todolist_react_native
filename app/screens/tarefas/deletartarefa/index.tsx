@@ -66,7 +66,7 @@ export default function DeletarTarefa() {
 
                  :
 
-                <View className="w-11/12 m-5 p-2 bg-slate-200 rounded-2xl shadow-lg shadow-black">
+                <View className="w-11/12 m-5 p-2 bg-eviolet-100 rounded-2xl shadow-lg shadow-black">
                     <View className="w-full my-2 flex items-start justify-center flex-col">
                         <Text className="p-2 text-2xl font-bold text-black">Você deseja excluir a tarefa?</Text>
                         <Text className="p-2 text-xl font-bold text-black">{tarefa.nome}</Text>

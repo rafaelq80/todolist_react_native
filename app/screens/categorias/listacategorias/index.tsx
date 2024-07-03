@@ -55,7 +55,7 @@ export default function ListaCategorias() {
 
       <View className="absolute bottom-7 right-7">
         <IconButton
-          styles={"w-12 ml-5 bg-violet-700 rounded-2xl"}
+          styles={"w-12 ml-5 bg-eviolet-700 rounded-2xl"}
           icon={"plus"}
           iconcolor={"white"}
           iconsize={28}

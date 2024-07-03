@@ -98,11 +98,11 @@ export default function FormCategoria() {
 
                 <View className='flex flex-col items-center justify-center w-full my-4'>
                     
-                    <Text className='text-3xl font-semibold text-black py-3'>{id ? 'Editar Categoria' : 'Cadastrar Categoria'}</Text>
+                    <Text className='text-3xl font-semibold text-eviolet-900 py-3'>{id ? 'Editar Categoria' : 'Cadastrar Categoria'}</Text>
                     
                     <TextInput
                         className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
-                                   text-xl text-black bg-violet-100'
+                                   text-xl text-black bg-eviolet-100'
                         placeholder='Categoria'
                         value={categoria.descricao}
                         onChange={(e) => atualizarEstado(e, 'descricao')}

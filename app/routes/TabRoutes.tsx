@@ -19,7 +19,8 @@ export default function TabRoutes() {
 
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: '#6d28d9',
+                        backgroundColor: '#8000ff',
+                        borderTopColor: 'transparent',
                         height: 64,
                     },
                     tabBarLabelStyle: {
@@ -27,7 +28,7 @@ export default function TabRoutes() {
                         paddingBottom: 4,
                         fontWeight: "500",
                     },
-                    tabBarInactiveTintColor: "#818cf8",
+                    tabBarInactiveTintColor: "#ddcdff",
                     tabBarActiveTintColor: "#ffffff",
                 }}
             >
@@ -39,7 +40,7 @@ export default function TabRoutes() {
                         tabBarIcon: ({ focused }) => <FontAwesome5
                             name="clipboard-list"
                             size={24}
-                            color={focused ? '#ffffff' : '#818cf8'}
+                            color={focused ? '#ffffff' : '#ddcdff'}
                             filter= 'brightness(1)'
                         />,
                     }}
@@ -51,7 +52,7 @@ export default function TabRoutes() {
                         tabBarIcon: ({ focused }) => <FontAwesome
                             name="star"
                             size={24}
-                            color={focused ? '#ffffff' : '#818cf8'}
+                            color={focused ? '#ffffff' : '#ddcdff'}
                             filter= 'brightness(1)'
                         />
                     }}
