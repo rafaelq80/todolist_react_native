@@ -14,7 +14,7 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
 
     return (
 
-        <View className="w-11/12 m-5 p-2 flex items-center justify-center flex-col
+        <View className="w-[90%] m-4 p-2 flex items-center justify-center flex-col
                         bg-eviolet-100 rounded-2xl shadow-lg shadow-black">
 
             <View className="w-full my-2 flex items-start justify-center flex-col">
@@ -43,7 +43,7 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
                             size={24}
                             color={'#1e40af'}
                             style={{
-                                paddingTop: 5,
+                                paddingTop: 2,
                             }}
                         />
                         :
@@ -52,7 +52,7 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
                             size={24}
                             color={'#dc2626'}
                             style={{
-                                paddingTop: 5,
+                                paddingTop: 2,
                             }}
                         />
                     }

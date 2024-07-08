@@ -14,7 +14,7 @@ export default function CardCategorias({ categoria }: CardCategoriaProps) {
 
     return (
 
-        <View className="w-11/12 my-3 mx-5 p-2 flex items-center justify-center flex-col
+        <View className="w-[90%] my-3 mx-4 p-2 flex items-center justify-center flex-col
                         bg-eviolet-100 rounded-2xl shadow-lg shadow-black">
 
             <View className="w-full flex flex-row">

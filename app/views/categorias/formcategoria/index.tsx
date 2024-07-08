@@ -1,7 +1,7 @@
 ﻿import { Ionicons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, Pressable, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
+import { NativeSyntheticEvent, Pressable, ScrollView, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
 import { UIActivityIndicator } from 'react-native-indicators';
 import Categoria from '../../../models/Categoria';
 import { atualizar, cadastrar, listar } from '../../../services/Service';
@@ -86,55 +86,65 @@ export default function FormCategoria() {
 
     return (
 
+
+
         <View className='flex-1 flex-col w-full'>
 
             {isLoading ?
                 <UIActivityIndicator
                     color='#6d28d9'
                     size={80}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
                 />
 
                 :
 
-                <View className='flex flex-col items-center justify-center w-full my-4'>
-                    
-                    <Text className='text-3xl font-semibold text-eviolet-900 py-3'>{id ? 'Editar Categoria' : 'Cadastrar Categoria'}</Text>
-                    
-                    <TextInput
-                        className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
+                <ScrollView>
+                    <View className='flex flex-col items-center justify-center w-full my-4'>
+
+                        <Text className='text-3xl font-semibold text-eviolet-900 py-3'>{id ? 'Editar Categoria' : 'Cadastrar Categoria'}</Text>
+
+                        <TextInput
+                            className='w-11/12 my-2 px-4 py-2 rounded-3xl border-1 border-transparent 
                                    text-xl text-black bg-eviolet-100'
-                        placeholder='Categoria'
-                        value={categoria.descricao}
-                        onChange={(e) => atualizarEstado(e, 'descricao')}
-                    />
+                            placeholder='Categoria'
+                            value={categoria.descricao}
+                            onChange={(e) => atualizarEstado(e, 'descricao')}
+                        />
 
-                    <View className='w-11/12 my-4 py-4 flex flex-row items-center justify-center'>
-                        
-                    <Pressable
-                            onPress={() => gerarNovaCategoria()}
-                            className='bg-green-600 rounded-full p-3 flex justify-center mx-2'
-                        >
-                            <Ionicons
-                                name='save'
-                                size={24}
-                                color={'#ffffff'}
-                            />
-                        </Pressable>
+                        <View className='w-11/12 my-4 py-4 flex flex-row items-center justify-center'>
 
-                        <Pressable
-                            onPress={() => retornar()}
-                            className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
-                        >
-                            <Ionicons
-                                name='close'
-                                size={24}
-                                color={'#ffffff'}
-                            />
-                        </Pressable>
+                            <Pressable
+                                onPress={() => gerarNovaCategoria()}
+                                className='bg-green-600 rounded-full p-3 flex justify-center mx-2'
+                            >
+                                <Ionicons
+                                    name='save'
+                                    size={24}
+                                    color={'#ffffff'}
+                                />
+                            </Pressable>
+
+                            <Pressable
+                                onPress={() => retornar()}
+                                className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
+                            >
+                                <Ionicons
+                                    name='close'
+                                    size={24}
+                                    color={'#ffffff'}
+                                />
+                            </Pressable>
+                        </View>
+
                     </View>
-
-                </View>
+                </ScrollView>
             }
         </View>
+
     )
 }

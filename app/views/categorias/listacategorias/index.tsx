@@ -40,17 +40,20 @@ export default function ListaCategorias() {
           color='#6d28d9'
           size={80}
           style={{
-            marginTop: 125,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         />
 
       )}
 
       <ScrollView>
-        {categorias.map((categoria) => (
-          <CardCategorias key={categoria.id} categoria={categoria} />
-        ))}
-
+        <View className="flex justify-center items-center">
+          {categorias.map((categoria) => (
+            <CardCategorias key={categoria.id} categoria={categoria} />
+          ))}
+        </View>
       </ScrollView>
 
       <View className="absolute bottom-7 right-5">

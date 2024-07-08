@@ -10,13 +10,13 @@ export default function NavBar() {
     return (
         <View className='w-full h-1/6 flex flex-col items-center justify-center bg-eviolet-700'>
 
-            <View className='w-fit h-4/6 flex flex-row items-center justify-between gap-x-12'>
+            <View className='w-fit h-4/6 flex flex-row items-center justify-between gap-x-3'>
                
                 <Image
                     source={{
                         uri: 'https://i.imgur.com/yfr3ybD.png',
                     }}
-                    className="w-20 h-20 rounded-full"
+                    className="w-16 h-16 rounded-full"
                 />
 
                 <Text className='text-white text-3xl font-bold'>

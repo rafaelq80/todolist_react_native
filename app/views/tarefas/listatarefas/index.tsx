@@ -41,16 +41,21 @@ export default function ListaTarefas() {
           color='#6d28d9'
           size={80}
           style={{
-            marginTop: 125,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         />
 
       )}
 
       <ScrollView>
-        {tarefas.sort((a, b) => +new Date(b.data) - +new Date(a.data)).map((tarefa) => (
-          <CardTarefas key={tarefa.id} tarefa={tarefa} />
-        ))}
+
+        <View className="flex justify-center items-center">
+          {tarefas.sort((a, b) => +new Date(b.data) - +new Date(a.data)).map((tarefa) => (
+            <CardTarefas key={tarefa.id} tarefa={tarefa} />
+          ))}
+        </View>
       </ScrollView>
 
       <View className="absolute bottom-7 right-5">
