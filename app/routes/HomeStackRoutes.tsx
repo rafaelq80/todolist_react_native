@@ -1,5 +1,5 @@
 ﻿import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../screens/home";
+import Home from "../views/home";
 import { HomeStackParam } from "../types/HomeStackParam";
 import TabRoutes from "./TabRoutes";
 

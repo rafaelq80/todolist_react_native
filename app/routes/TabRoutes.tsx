@@ -1,7 +1,7 @@
 ﻿import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import NavBar from "../components/navbar";
-import Perfil from "../screens/perfil";
+import Perfil from "../views/perfil";
 import { TabParam } from "../types/TabParam";
 import CategoriasStackRoutes from "./CategoriasStackRoutes";
 import TarefasStackRoutes from "./TarefasStackRoutes";

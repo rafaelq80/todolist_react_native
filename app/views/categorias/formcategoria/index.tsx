@@ -1,12 +1,13 @@
 ﻿import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, View, Text } from 'react-native';
+import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, View, Text, Pressable } from 'react-native';
 import { UIActivityIndicator } from 'react-native-indicators';
 import IconButton from '../../../components/iconbutton/IconButton';
 import Categoria from '../../../models/Categoria';
 import { atualizar, cadastrar, listar } from '../../../services/Service';
 import { CategoriasPropsStack } from '../../../types/CategoriasStackParam';
 import { ToastAlerta } from '../../../utils/ToastAlerta';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function FormCategoria() {
 
@@ -110,20 +111,27 @@ export default function FormCategoria() {
 
                     <View className='w-11/12 my-4 py-4 flex flex-row items-center justify-center'>
                         
-                        <IconButton
-                            icon="content-save"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => gerarNovaCategoria()}
-                            styles={'w-16 mx-2 bg-blue-700 rounded-2xl'}
-                        />
-                        <IconButton
-                            icon="cancel"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => retornar()}
-                            styles={'w-16 mx-2 bg-red-600 rounded-2xl'}
-                        />
+                    <Pressable
+                            onPress={() => gerarNovaCategoria()}
+                            className='bg-green-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='save'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
+
+                        <Pressable
+                            onPress={() => retornar()}
+                            className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='close'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
                     </View>
 
                 </View>

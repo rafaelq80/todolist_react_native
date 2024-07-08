@@ -1,6 +1,6 @@
 ﻿import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
+import { Pressable, ScrollView, View } from "react-native";
 import { UIActivityIndicator } from "react-native-indicators";
 import CardTarefas from "../../../components/cardtarefas/CardTarefas";
 import IconButton from "../../../components/iconbutton/IconButton";
@@ -8,6 +8,7 @@ import Tarefa from "../../../models/Tarefa";
 import { listar } from "../../../services/Service";
 import { TarefasPropsStack } from "../../../types/TarefasStackParam";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function ListaTarefas() {
 
@@ -53,14 +54,17 @@ export default function ListaTarefas() {
         ))}
       </ScrollView>
 
-      <View className="absolute bottom-7 right-7">
-        <IconButton
-          styles={"w-12 ml-5 bg-eviolet-700 rounded-2xl"}
-          icon={"plus"}
-          iconcolor={"white"}
-          iconsize={28}
-          handleClick={() => abrirForm()}
-        />
+      <View className="absolute bottom-7 right-5">
+        <Pressable
+          onPress={() => abrirForm()}
+          className='bg-eviolet-800 rounded-full p-4 flex justify-center mx-1'
+        >
+          <Ionicons
+            name='add'
+            size={24}
+            color={'#ffffff'}
+          />
+        </Pressable>
       </View>
 
     </View >

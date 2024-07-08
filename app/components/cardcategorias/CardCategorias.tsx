@@ -1,8 +1,8 @@
-﻿import { useNavigation } from "@react-navigation/native";
-import { Text, View } from "react-native";
+﻿import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable, Text, View } from "react-native";
 import Categoria from "../../models/Categoria";
 import { CategoriasPropsStack } from "../../types/CategoriasStackParam";
-import IconButton from "../iconbutton/IconButton";
 
 interface CardCategoriaProps {
     categoria: Categoria
@@ -28,25 +28,32 @@ export default function CardCategorias({ categoria }: CardCategoriaProps) {
 
                 <View className="w-1/5 items-end justify-end flex-row">
 
-                    <IconButton
-                        icon="pencil"
-                        iconcolor='white'
-                        iconsize={24}
-                        handleClick={() => navigation.navigate("FormCategorias", {
-                            id: `${categoria.id}`
-                        })}
-                        styles={'my-2 w-12 ml-3 bg-blue-700 rounded-2xl'}
+                <Pressable
+                    onPress={() => navigation.navigate("FormCategorias", {
+                        id: `${categoria.id}`
+                    })}
+                    className='bg-blue-600 rounded-full p-3 flex justify-center mx-1'
+                >
+                    <Ionicons
+                        name='create'
+                        size={24}
+                        color={'#ffffff'}
                     />
+                </Pressable>
 
-                    <IconButton
-                        icon="delete"
-                        iconcolor='white'
-                        iconsize={24}
-                        handleClick={() => navigation.navigate("DeletarCategorias", {
-                            id: `${categoria.id}`
-                        })}
-                        styles={'my-2 w-12 ml-3 bg-red-600 rounded-2xl'}
+                <Pressable
+                    onPress={() => navigation.navigate("DeletarCategorias", {
+                        id: `${categoria.id}`
+                    })}
+                    className='bg-red-600 rounded-full p-3 flex justify-center mx-1'
+                >
+                    <Ionicons
+                        name='trash'
+                        size={24}
+                        color={'#ffffff'}
                     />
+                </Pressable>
+                
                 </View>
             </View>
 

@@ -1,8 +1,8 @@
 ﻿import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ListaCategorias from "../screens/categorias/listacategorias";
+import ListaCategorias from "../views/categorias/listacategorias";
 import { StackCategoriasParam } from "../types/CategoriasStackParam";
-import FormCategoria from "../screens/categorias/formcategoria";
-import DeletarCategoria from "../screens/categorias/deletarcategoria";
+import FormCategoria from "../views/categorias/formcategoria";
+import DeletarCategoria from "../views/categorias/deletarcategoria";
 
 
 const Stack = createNativeStackNavigator<StackCategoriasParam>();

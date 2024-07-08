@@ -1,16 +1,16 @@
 ﻿import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, Switch, SwitchChangeEvent, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
+import { NativeSyntheticEvent, Pressable, Switch, SwitchChangeEvent, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { UIActivityIndicator } from 'react-native-indicators';
-import IconButton from '../../../components/iconbutton/IconButton';
 import Categoria from '../../../models/Categoria';
 import Tarefa from '../../../models/Tarefa';
 import { atualizar, cadastrar, listar } from '../../../services/Service';
 import { styles } from '../../../styles/TarefasStyles';
 import { TarefasPropsStack } from "../../../types/TarefasStackParam";
 import { ToastAlerta } from '../../../utils/ToastAlerta';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function FormTarefa() {
 
@@ -249,21 +249,28 @@ export default function FormTarefa() {
                     />
 
                     <View className='w-11/12 my-4 py-4 flex flex-row items-center justify-center'>
-                        
-                        <IconButton
-                            icon="content-save"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => gerarNovaTarefa()}
-                            styles={'w-16 mx-2 bg-blue-700 rounded-2xl'}
-                        />
-                        <IconButton
-                            icon="cancel"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => retornar()}
-                            styles={'w-16 mx-2 bg-red-600 rounded-2xl'}
-                        />
+
+                        <Pressable
+                            onPress={() => gerarNovaTarefa()}
+                            className='bg-green-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='save'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
+
+                        <Pressable
+                            onPress={() => retornar()}
+                            className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='close'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
                     </View>
 
                 </View>

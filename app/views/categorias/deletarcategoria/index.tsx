@@ -1,13 +1,12 @@
-﻿import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+﻿import { Ionicons } from "@expo/vector-icons";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { Alert, Text, View } from "react-native";
-import IconButton from "../../../components/iconbutton/IconButton";
-import Tarefa from "../../../models/Tarefa";
-import { deletar, listar } from "../../../services/Service";
-import { ToastAlerta } from "../../../utils/ToastAlerta";
+import { Pressable, Text, View } from "react-native";
 import { UIActivityIndicator } from "react-native-indicators";
 import Categoria from "../../../models/Categoria";
+import { deletar, listar } from "../../../services/Service";
 import { CategoriasPropsStack } from "../../../types/CategoriasStackParam";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 export default function DeletarCategoria() {
 
@@ -45,7 +44,7 @@ export default function DeletarCategoria() {
             ToastAlerta('Categoria Excluída!', 'sucesso')
 
         } catch (error) {
-            ToastAlerta('Erro ao Excluir a Categoria', 'erro')
+            ToastAlerta('Erro ao Excluir', 'erro')
         }
 
         setIsLoading(false)
@@ -60,12 +59,12 @@ export default function DeletarCategoria() {
 
         <View className="w-full flex-1 flex-col">
             {isLoading ?
-                    <UIActivityIndicator
-                        color='#6d28d9'
-                        size={80}
-                    />
+                <UIActivityIndicator
+                    color='#6d28d9'
+                    size={80}
+                />
 
-                 :
+                :
 
                 <View className="w-11/12 m-5 p-2 bg-eviolet-100 rounded-2xl shadow-lg shadow-black">
                     <View className="w-full my-2 flex items-start justify-center flex-col">
@@ -74,20 +73,27 @@ export default function DeletarCategoria() {
                     </View>
 
                     <View className='flex flex-row items-center justify-center w-full mt-2 py-2'>
-                        <IconButton
-                            icon="check"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => deletarCategoria()}
-                            styles={'w-16 mx-2 bg-green-600 rounded-xl'}
-                        />
-                        <IconButton
-                            icon="cancel"
-                            iconcolor='white'
-                            iconsize={24}
-                            handleClick={() => retornar()}
-                            styles={'w-16 mx-2 bg-red-600 rounded-xl'}
-                        />
+                        <Pressable
+                            onPress={() => deletarCategoria()}
+                            className='bg-green-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='checkmark'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
+
+                        <Pressable
+                            onPress={() => retornar()}
+                            className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
+                        >
+                            <Ionicons
+                                name='close'
+                                size={24}
+                                color={'#ffffff'}
+                            />
+                        </Pressable>
                     </View>
                 </View>
             }

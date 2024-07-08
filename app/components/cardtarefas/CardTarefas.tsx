@@ -1,9 +1,8 @@
-﻿import { useNavigation } from "@react-navigation/native";
-import { Text, View } from "react-native";
+﻿import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable, Text, View } from "react-native";
 import Tarefa from "../../models/Tarefa";
 import { TarefasPropsStack } from "../../types/TarefasStackParam";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import IconButton from "../iconbutton/IconButton";
 
 interface CardTarefaProps {
     tarefa: Tarefa
@@ -37,23 +36,34 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
                     }).format(new Date(tarefa.data ? tarefa.data : ''))}
                 </Text>
 
-                <Text className={tarefa.status == true ?
-                    "p-2 text-xl font-bold text-blue-900" :
-                    "p-2 text-xl font-bold text-red-600"}
-                >
+                <View className="flex flex-row justify-start">
                     {tarefa.status == true ?
-                        <MaterialCommunityIcons
-                            name="clock"
+                        <Ionicons
+                            name='time'
                             size={24}
+                            color={'#1e40af'}
+                            style={{
+                                paddingTop: 5,
+                            }}
                         />
                         :
-                        <MaterialCommunityIcons
-                            name="stop-circle"
+                        <Ionicons
+                            name='stop'
                             size={24}
+                            color={'#dc2626'}
+                            style={{
+                                paddingTop: 5,
+                            }}
                         />
                     }
-                    {tarefa.status == true ? "Em Andamento" : "Não Iniciada"}
-                </Text>
+
+                    <Text className={tarefa.status == true ?
+                        "text-xl font-bold text-blue-800" :
+                        "text-xl font-bold text-red-600"}
+                    >
+                        {tarefa.status == true ? "Em Andamento" : "Não Iniciada"}
+                    </Text>
+                </View>
 
                 <Text className="p-2 text-xl text-black">
                     Categoria: {tarefa.categoria?.descricao}
@@ -61,27 +71,33 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
 
             </View>
 
-            <View className="w-full my-2 py-2 flex-1 flex-row justify-center">
+            <View className="w-full m-2 flex-1 flex-row justify-center">
 
-                <IconButton
-                    icon="pencil"
-                    iconcolor='white'
-                    iconsize={24}
-                    handleClick={() => navigation.navigate("FormTarefas", {
+                <Pressable
+                    onPress={() => navigation.navigate("FormTarefas", {
                         id: `${tarefa.id}`
                     })}
-                    styles={'w-16 mx-2 bg-blue-700 rounded-2xl'}
-                />
+                    className='bg-blue-600 rounded-full p-3 flex justify-center mx-2'
+                >
+                    <Ionicons
+                        name='create'
+                        size={24}
+                        color={'#ffffff'}
+                    />
+                </Pressable>
 
-                <IconButton
-                    icon="delete"
-                    iconcolor='white'
-                    iconsize={24}
-                    handleClick={() => navigation.navigate("DeletarTarefas", {
+                <Pressable
+                    onPress={() => navigation.navigate("DeletarTarefas", {
                         id: `${tarefa.id}`
                     })}
-                    styles={'w-16 mx-2 bg-red-600 rounded-2xl'}
-                />
+                    className='bg-red-600 rounded-full p-3 flex justify-center mx-2'
+                >
+                    <Ionicons
+                        name='trash'
+                        size={24}
+                        color={'#ffffff'}
+                    />
+                </Pressable>
 
             </View>
 

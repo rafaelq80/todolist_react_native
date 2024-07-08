@@ -1,8 +1,8 @@
 ﻿import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ListaTarefas from "../screens/tarefas/listatarefas";
+import ListaTarefas from "../views/tarefas/listatarefas";
 import { StackTarefasParam } from "../types/TarefasStackParam";
-import FormTarefa from "../screens/tarefas/formtarefa";
-import DeletarTarefa from "../screens/tarefas/deletartarefa";
+import FormTarefa from "../views/tarefas/formtarefa";
+import DeletarTarefa from "../views/tarefas/deletartarefa";
 
 
 const Stack = createNativeStackNavigator<StackTarefasParam>();
