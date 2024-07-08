@@ -33,10 +33,10 @@ Aplicativo Mobile, desenvolvido através da Biblioteca React Native e do Framewo
 
 <table width='100%'>
 	<tr>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-032824.png?updatedAt=1719815316976" title="source: imgur.com"/></td>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-015904.png?updatedAt=1719815281156" title="source: imgur.com" /></td>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-020527.png?updatedAt=1719815280727" title="source: imgur.com" /></td>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-020445.png?updatedAt=1719815281091" title="source: imgur.com" /></td>
+		<td width="25%"></td>
+		<td width="25%"></td>
+		<td width="25%"></td>
+		<td width="25%"></td>
 	</tr>
     <tr>
 		<td width="25%" align="center"><b>Tela Inicial</b></td>
@@ -45,8 +45,8 @@ Aplicativo Mobile, desenvolvido através da Biblioteca React Native e do Framewo
 		<td width="25%" align="center"><b>Cadastrar Tarefa</b></td>
 	</tr>
     <tr>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-020512.png?updatedAt=1719815280962" title="source: imgur.com"/></td>
-		<td width="25%"><img src="https://ik.imagekit.io/vzr6ryejm/react_native/Screenshot_20240701-020501.png?updatedAt=1719815282335" title="source: imgur.com"/></td>
+		<td width="25%"></td>
+		<td width="25%"></td>
 		<td width="25%"></td>
 		<td width="25%"></td>
 	</tr>
