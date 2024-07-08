@@ -20,7 +20,6 @@ export default function ListaTarefas() {
       await listar('/tarefas', setTarefas);
     } catch (error: any) {
       ToastAlerta('Tarefas não Encontradas.', 'erro')
-      console.log(error)
     }
   }
 

@@ -157,8 +157,6 @@ export default function FormTarefa() {
         }).format(data)
     }
 
-    console.log(JSON.stringify(tarefa))
-
     return (
 
 

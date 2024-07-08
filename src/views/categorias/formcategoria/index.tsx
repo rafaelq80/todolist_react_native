@@ -82,8 +82,6 @@ export default function FormCategoria() {
         navigation.navigate("ListarCategorias")
     }
 
-    console.log(JSON.stringify(categoria))
-
     return (
 
 
