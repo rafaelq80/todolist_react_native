@@ -1,7 +1,6 @@
 ﻿import { useNavigation } from "@react-navigation/native";
 import { Image, Pressable, Text, View } from "react-native";
 import { HomePropsStack } from "../../types/HomeStackParam";
-import { ToastAlerta } from "../../utils/ToastAlerta";
 
 export default function Home() {
 

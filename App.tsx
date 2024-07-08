@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ToastManager from 'toastify-react-native';
-import Routes from './app/routes';
+import Routes from './src/routes';
 
 export default function App() {
   
