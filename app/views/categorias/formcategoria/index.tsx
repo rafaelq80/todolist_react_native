@@ -1,13 +1,12 @@
-﻿import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+﻿import { Ionicons } from '@expo/vector-icons';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, View, Text, Pressable } from 'react-native';
+import { NativeSyntheticEvent, Pressable, Text, TextInput, TextInputChangeEventData, View } from 'react-native';
 import { UIActivityIndicator } from 'react-native-indicators';
-import IconButton from '../../../components/iconbutton/IconButton';
 import Categoria from '../../../models/Categoria';
 import { atualizar, cadastrar, listar } from '../../../services/Service';
 import { CategoriasPropsStack } from '../../../types/CategoriasStackParam';
 import { ToastAlerta } from '../../../utils/ToastAlerta';
-import { Ionicons } from '@expo/vector-icons';
 
 export default function FormCategoria() {
 
@@ -28,7 +27,7 @@ export default function FormCategoria() {
         try {
             await listar(`/categorias/${id}`, setCategoria)
         } catch (error: any) {
-            ToastAlerta('Erro ao procurar a Categoria.', 'erro')
+            ToastAlerta('Categoria não encontrada.', 'erro')
         }
     }
 
@@ -60,7 +59,7 @@ export default function FormCategoria() {
                 ToastAlerta('Categoria Atualizada!', 'sucesso')
 
             } catch (error: any) {
-                ToastAlerta('Erro ao Atualizar a Categoria', 'erro')
+                ToastAlerta('Erro ao Atualizar.', 'erro')
             }
 
         } else {
@@ -70,7 +69,7 @@ export default function FormCategoria() {
                 ToastAlerta('Categoria Cadastrada!', 'sucesso');
 
             } catch (error: any) {
-                ToastAlerta('Erro ao Cadastrar a Categoria', 'erro');
+                ToastAlerta('Erro ao Cadastrar.', 'erro');
             }
         }
 

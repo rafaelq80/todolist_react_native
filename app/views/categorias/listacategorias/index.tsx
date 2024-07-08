@@ -19,7 +19,7 @@ export default function ListaCategorias() {
     try {
       await listar('/categorias', setCategorias);
     } catch (error: any) {
-      ToastAlerta('Erro ao listar as Categorias.', 'erro')
+      ToastAlerta('Categorias não encontradas.', 'erro')
     }
   }
 

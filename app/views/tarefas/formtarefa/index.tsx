@@ -49,7 +49,7 @@ export default function FormTarefa() {
         try {
             await listar(`/tarefas/${id}`, setTarefa)
         } catch (error: any) {
-            ToastAlerta('Erro ao procurar a Tarefa.', 'erro')
+            ToastAlerta('Tarefa não Encontrada.', 'erro')
         }
     }
 
@@ -57,7 +57,7 @@ export default function FormTarefa() {
         try {
             await listar('/categorias', setCategorias);
         } catch (error: any) {
-            ToastAlerta('Erro ao listar as Categorias.', 'erro')
+            ToastAlerta('Categorias não Encontradas.', 'erro')
         }
     }
 
@@ -126,7 +126,7 @@ export default function FormTarefa() {
                 ToastAlerta('Tarefa atualizada!', 'sucesso')
 
             } catch (error: any) {
-                ToastAlerta('Erro ao atualizar a Tarefa', 'erro')
+                ToastAlerta('Erro ao Atualizar.', 'erro')
             }
 
         } else {
@@ -136,7 +136,7 @@ export default function FormTarefa() {
                 ToastAlerta('Tarefa cadastrada!', 'sucesso');
 
             } catch (error: any) {
-                ToastAlerta('Erro ao cadastrar a Tarefa', 'erro');
+                ToastAlerta('Erro ao cadastrar.', 'erro');
             }
         }
 

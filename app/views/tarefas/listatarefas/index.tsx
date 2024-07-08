@@ -1,14 +1,13 @@
-﻿import { useNavigation } from "@react-navigation/native";
+﻿import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { UIActivityIndicator } from "react-native-indicators";
 import CardTarefas from "../../../components/cardtarefas/CardTarefas";
-import IconButton from "../../../components/iconbutton/IconButton";
 import Tarefa from "../../../models/Tarefa";
 import { listar } from "../../../services/Service";
 import { TarefasPropsStack } from "../../../types/TarefasStackParam";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
-import { Ionicons } from "@expo/vector-icons";
 
 export default function ListaTarefas() {
 
@@ -20,7 +19,7 @@ export default function ListaTarefas() {
     try {
       await listar('/tarefas', setTarefas);
     } catch (error: any) {
-      ToastAlerta('Erro ao listar as Tarefas.', 'erro')
+      ToastAlerta('Tarefas não Encontradas.', 'erro')
       console.log(error)
     }
   }

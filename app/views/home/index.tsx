@@ -1,11 +1,12 @@
 ﻿import { useNavigation } from "@react-navigation/native";
 import { Image, Pressable, Text, View } from "react-native";
 import { HomePropsStack } from "../../types/HomeStackParam";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 export default function Home() {
 
     const navigation = useNavigation<HomePropsStack>();
-   
+    
     return (
 
         <View className='flex-1 flex-col items-center justify-center bg-eviolet-100 w-full h-full py-2'>
@@ -34,7 +35,7 @@ export default function Home() {
                         Entrar
                     </Text>
                 </Pressable>
-
+                
             </ View>
 
             <View className='flex-1 justify-end mb-3'>
