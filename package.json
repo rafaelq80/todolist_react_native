@@ -20,7 +20,7 @@
     "@types/react-native-indicators": "^0.16.6",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
-    "expo": "^51.0.17",
+    "expo": "51.0.19",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "metro-react-native-babel-preset": "^0.77.0",

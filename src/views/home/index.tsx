@@ -19,7 +19,7 @@ export default function Home() {
 
             <Text className='text-eviolet-900 text-3xl font-bold'>Todo List App</Text>
 
-            <Text className='text-eviolet-900 text-xl font-bold'>Mantenha suas tarefas organizadas!</Text >
+            <Text className='text-eviolet-900 text-xl font-bold'>Organizador de Tarefas</Text >
 
             <View className='flex flex-col items-center justify-center w-full mt-4 py-3'>
                 <Pressable
