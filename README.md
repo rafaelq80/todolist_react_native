@@ -27,38 +27,6 @@ Aplicativo Mobile, desenvolvido através da Biblioteca React Native e do Framewo
 
 <br />
 
-## Screens
-
-
-
-<table width='100%'>
-	<tr>
-		<td width="25%"></td>
-		<td width="25%"></td>
-		<td width="25%"></td>
-		<td width="25%"></td>
-	</tr>
-    <tr>
-		<td width="25%" align="center"><b>Tela Inicial</b></td>
-		<td width="25%" align="center"><b>Lista de Tarefas</b></td>
-		<td width="25%" align="center"><b>Lista de categorias</b></td>
-		<td width="25%" align="center"><b>Cadastrar Tarefa</b></td>
-	</tr>
-    <tr>
-		<td width="25%"></td>
-		<td width="25%"></td>
-		<td width="25%"></td>
-		<td width="25%"></td>
-	</tr>
-    <tr>
-		<td width="25%" align="center"><b>Editar Tarefa</b></td>
-		<td width="25%" align="center"><b>Excluir Tarefa</b></td>
-		<td width="25%" align="center"></td>
-		<td width="25%" align="center"></td>
-	</tr>
-</table>
-<br />
-
 ## Bibliotecas Utilizadas
 
 - Nativewind + Tailwind (Estilização)
