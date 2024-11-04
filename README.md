@@ -1,4 +1,4 @@
-# 🚧Projeto Todo List - React Native
+# 🚧 Projeto Todo List - Mobile
 
 <br />
 
