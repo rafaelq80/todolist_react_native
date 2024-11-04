@@ -42,7 +42,7 @@ export default function FormTarefa() {
         responsavel: '',
         data: agora,
         status: false,
-        categoria: null
+        categoria: categoria,
     })
 
     async function buscarTarefaPorId(id: string) {
@@ -66,6 +66,7 @@ export default function FormTarefa() {
 
         if (id !== undefined) {
             buscarTarefaPorId(id)
+			setCategoria(tarefa.categoria)
         }
 
     }, [id])
@@ -157,6 +158,9 @@ export default function FormTarefa() {
         }).format(data)
     }
 
+	console.log(JSON.stringify(tarefa))
+	console.log(JSON.stringify(categoria))
+
     return (
 
 
@@ -247,7 +251,7 @@ export default function FormTarefa() {
                             labelField="descricao"
                             valueField="id"
                             placeholder='Selecione uma Categoria'
-                            value={categoria}
+                            value={tarefa.categoria || ''}
                             onChange={(value) => atualizarCategoria(value)}
                         />
 

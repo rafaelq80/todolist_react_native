@@ -7,5 +7,5 @@ export default interface Tarefa{
     responsavel: string
     data: Date
     status: boolean
-    categoria?: Categoria | null
+    categoria: Categoria
 }

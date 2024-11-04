@@ -1,5 +1,5 @@
-﻿import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+﻿import Ionicons from '@expo/vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 import { Pressable, Text, View } from "react-native";
 import Tarefa from "../../models/Tarefa";
 import { TarefasPropsStack } from "../../types/TarefasStackParam";
@@ -14,8 +14,11 @@ export default function CardTarefas({ tarefa }: CardTarefaProps) {
 
     return (
 
-        <View className="w-[90%] m-4 p-2 flex items-center justify-center flex-col
-                        bg-eviolet-100 rounded-2xl shadow-lg shadow-black">
+        <View 
+            key={`card-${tarefa.id}`}
+            className="w-[90%] m-4 p-2 flex items-center justify-center flex-col
+                        bg-eviolet-100 rounded-2xl shadow-lg shadow-black"
+        >
 
             <View className="w-full my-2 flex items-start justify-center flex-col">
 

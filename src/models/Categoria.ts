@@ -3,5 +3,5 @@
 export default interface Categoria{
     id: number
     descricao: string
-    tarefas?: Tarefa[] | null
+    tarefa?: Tarefa | null
 }
